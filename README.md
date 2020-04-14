@@ -10,7 +10,7 @@ I don’t guarantee that slots will be found when you’re running the script or
 I will continue to release updates and bug fixes to this script as they arise/suggested.
 
 # Instructions
-1. Download instacart-deliveryslot-finder.script
+1. Download instacart-deliveryslot-finder.scpt
 2. Open Safari on your Mac
 3. Open Safari Preferences (command + comma key)
 4. Click Advanced
