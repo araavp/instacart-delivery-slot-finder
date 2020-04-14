@@ -1,13 +1,15 @@
 # instacart-delivery-slot-finder
 Mac Script that notifies you once a delivery slot in available on Instacart
 
+# Message
+Latest Version: 4/13/20 10:40 PM PST. Please download again to get the latest update.
 
 # DISCLAIMER
 I don’t guarantee that slots will be found when you’re running the script or whether the slot will remain open during the time you are checking out your Instacart order. Feel free to post concerns in the Issues section if you run into any problems with the service.
 
-
 # Updates
 - After running the script, let the script minimize the window (should take around 20-30 seconds), then proceed to carry on with computer use. 
+- 4/13/20 10:40 PM PST: Enhanced to notify when a fresh food item is not available.
 
 I will continue to release updates and bug fixes to this script as they arise/suggested.
 
