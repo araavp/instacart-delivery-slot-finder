@@ -35,3 +35,7 @@ Make sure to quickly checkout because slots will be filled out very fast. Often,
 
 # Inspiration
 COVID-19 caused my family, and many others in my community, to scramble for basic necessities like toilet paper, food, cleaning supplies, etc. Services like Instacart, Amazon Whole Foods were busy and many struggled to place their order. As my parents are more vulnerable to COVID-19, as well as other families with grandparents and other elderly family members, I wanted to create an easier process for my parents to order basic necessities from the comfort of our home. I realized that many other families run into similar issues, so I want to publicly release this code for everyone to use. I would like to also thank Adrian Hertel for inspiration to actually tackle this issue and make a working script.
+
+
+# Comments/Questions
+Any comments and/or questions that you don't want to add to the Issues tab can be redirected to: araavp@berkeley.edu
