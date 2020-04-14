@@ -1,5 +1,5 @@
 # instacart-delivery-slot-finder
-Mac Script that notifies you once a delivery slot in available on Instacart
+Mac Script that notifies you once a delivery slot is available on Instacart
 
 # Message
 Latest Version: 4/13/20 10:40 PM PST. Please download again to get the latest update.
