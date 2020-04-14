@@ -7,6 +7,8 @@ I don’t guarantee that slots will be found when you’re running the script or
 
 
 # Updates
+- After running the script, let the script minimize the window (should take around 20-30 seconds), then proceed to carry on with computer use. 
+
 I will continue to release updates and bug fixes to this script as they arise/suggested.
 
 # Instructions
