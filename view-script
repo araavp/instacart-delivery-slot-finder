@@ -41,6 +41,10 @@ set delivery_openslot to false
 set first_time to true
 set mail_notif to false
 set user_mail_address to ""
+set input to "Not Found"
+
+
+-- Declare functions
 
 -- Welcome Message
 display dialog welcomeMessage with title "Welcome" with icon stop buttons {"Cancel", "Continue"} default button "Continue"
@@ -60,7 +64,7 @@ end if
 -- Opens new window
 tell application "Safari"
 	make new document
-	delay 10
+	delay 15
 	set instaURL_id to id of front window
 end tell
 
@@ -78,7 +82,14 @@ repeat while delivery_openslot is false
 			set miniaturized of window id instaURL_id to true
 			set first_time to false
 		end if
-		delay 30
+		delay 5
+		repeat until (do JavaScript "document.readyState" in tab -1 of window id instaURL_id) is "complete"
+			if (do JavaScript "document.readyState" in tab -1 of window id instaURL_id) is "complete" then
+				exit repeat
+				log "exited repeat"
+			end if
+		end repeat
+		delay 5
 	end tell
 	
 	-- Reads HTML text on page and looks for whether delivery slot is open or not
@@ -93,6 +104,8 @@ repeat while delivery_openslot is false
 		end tell
 		log "no slots found"
 		delay 10
+	else if input is "Not Found" then
+		log "error caused"
 	else
 		-- Sends notifications through desktop notification or mail (if user allowed)
 		display notification "Found an available delivery slot!" with title "Instacart" sound name "Sosumi"
