@@ -1,0 +1,122 @@
+set madeBy to "
+Made by Araav Patel | UC Berkeley | Computer Science
+"
+
+set instructionMessage to "
+
+Instructions
+
+1. Download instacart-deliveryslot-finder.script
+2. Open Safari on your Mac
+3. Open Safari Preferences (command + comma key)
+4. Click Advanced
+5. Checkmark the “Show develop menu in menu bar” option
+6. Go back to Safari window
+7. Click Develop on the Menu Bar
+8. Enable “Allow JavaScript from Apple Events”
+9. Open Instacart and fill up your cart
+10. Go to Checkout after you have placed everything you wanted in your cart
+11. Choose your delivery address
+12. Your screen should show an Image with 'No Delivery times available'
+13. Open up the downloaded script in Script Editor and click the Run Button (3rd Button on the top)
+14. Make sure your volume is on because the script will give a sound notification once a delivery slot becomes available
+"
+
+set howitWorks to "
+
+How the Script Works
+1. Opens a new window with Instacart and refreshes it around every 30 seconds
+2. Checks to see if a delivery slot is available
+3. If it is available, it will send a desktop notification with sound and/or an email if you had selected the option
+"
+
+
+-- Declare variables
+set welcomeMessage to "Welcome to Instacart Delivery Slot Search Tool!"
+set instaURL to "https://www.instacart.com/store/checkout_v3"
+set no_delivery to "No delivery times available"
+set no_delivery2 to "Sorry, we're fresh out of same-day delivery options at this store"
+set minimize_window to true
+set delivery_openslot to false
+set first_time to true
+set mail_notif to false
+set user_mail_address to ""
+
+-- Welcome Message
+display dialog welcomeMessage with title "Welcome" with icon stop buttons {"Cancel", "Continue"} default button "Continue"
+
+-- Whether user wants mail notifications in addition to desktop notification
+set user_mail_notif to display dialog "Do you want to receive a mail notification when there is a delivery slot available? Only do this if your Mail Application is synced to your email or else it may cause issues" buttons {"No", "Yes"} with icon note with title "Mail Notifications"
+
+-- The mail will be sent from the default email on the Mail App
+if button returned of user_mail_notif = "Yes" then
+	set user_mail_input to display dialog "What is your email address" default answer ""
+	set user_mail_address to text returned of user_mail_input
+	set mail_notif to true
+else if button returned of user_mail_notif = "No" then
+	set mail_notif to false
+end if
+
+-- Opens new window
+tell application "Safari"
+	make new document
+	delay 10
+	set instaURL_id to id of front window
+end tell
+
+-- Repeats until the script finds a delivery slot available
+repeat while delivery_openslot is false
+	
+	-- Opens Instacart tab
+	tell application "Safari"
+		tell window id instaURL_id
+			make new tab with properties {URL:instaURL}
+			set current tab to last tab
+		end tell
+		-- Minimizes the window and runs in background
+		if first_time is true then
+			set miniaturized of window id instaURL_id to true
+			set first_time to false
+		end if
+		delay 20
+	end tell
+	
+	-- Reads HTML text on page and looks for whether delivery slot is open or not
+	tell application "Safari"
+		set input to do JavaScript "document.getElementsByClassName('" & "rmq-28f9c13a rmq-8e4e203" & "')[" & 0 & "].innerHTML;" in tab -1 of window id instaURL_id
+	end tell
+	
+	-- Refreshes by closing previous page and opening a new one
+	if input contains no_delivery then
+		tell application "Safari"
+			close (last tab of window id instaURL_id)
+		end tell
+		log "no slots found"
+		delay 10
+	else if input contains no_delivery2 then
+		tell application "Safari"
+			close (last tab of window id instaURL_id)
+		end tell
+		log "no slots found"
+		delay 10
+	else
+		-- Sends notifications through desktop notification or mail (if user allowed)
+		display notification "Found an available delivery slot!" with title "Instacart" sound name "Sosumi"
+		say "Delivery slot appeared. Try to checkout."
+		if mail_notif is true then
+			tell application "Mail"
+				set theMessage to make new outgoing message with properties {subject:"Instacart Delivery Slot Found!", content:"Check the Instacart Website! There is a delivery slot available! Try to checkout!", visible:true}
+				tell theMessage
+					make new to recipient with properties {address:user_mail_address}
+					send
+				end tell
+			end tell
+		end if
+		set delivery_openslot to true
+	end if
+end repeat
+
+set madeBy to "
+Made by Araav Patel | UC Berkeley | Computer Science
+Inspiration: Adrian Hertel
+"
