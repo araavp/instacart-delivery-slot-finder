@@ -34,12 +34,13 @@ I will continue to release updates and bug fixes to this script as they arise/su
 13. Open up the downloaded script in Script Editor and click the Run Button (3rd Button on the top)
 14. Make sure your volume is on because the script will give a sound notification once a delivery slot becomes available
 
+
 # How the Script Works
 1. Opens a new window with Instacart and refreshes it around every 30 seconds
 2. Checks to see if a delivery slot is available
 3. If it is available, it will send a desktop notification with sound and/or an email if you had selected the option
 
-Make sure to quickly checkout because slots will be filled out very fast.
+Make sure to quickly checkout because slots will be filled out very fast. These workers risk their lives and are often not paid well, so please remember to tip well!
 
 
 # Inspiration
