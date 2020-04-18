@@ -106,7 +106,7 @@ repeat while delivery_openslot is false
 		delay 10
 	else if input is "Not Found" then
 		log "error caused"
-	else
+	else if input contains "CHOOSE" then
 		-- Sends notifications through desktop notification or mail (if user allowed)
 		display notification "Found an available delivery slot!" with title "Instacart" sound name "Sosumi"
 		say "Delivery slot appeared. Try to checkout."
@@ -120,6 +120,22 @@ repeat while delivery_openslot is false
 			end tell
 		end if
 		set delivery_openslot to true
+		log "Script found 'CHOOSE' slot"
+		(*else
+		-- Sends notifications through desktop notification or mail (if user allowed)
+		display notification "Found an available delivery slot!" with title "Instacart" sound name "Sosumi"
+		say "Delivery slot appeared. Try to checkout."
+		if mail_notif is true then
+			tell application "Mail"
+				set theMessage to make new outgoing message with properties {subject:"Instacart Delivery Slot Found!", content:"Check the Instacart Website! There is a delivery slot available! Try to checkout!", visible:true}
+				tell theMessage
+					make new to recipient with properties {address:user_mail_address}
+					send
+				end tell
+			end tell
+		end if
+		set delivery_openslot to true
+		log "Script did not find 'CHOOSE' nor no delivery slot messages"*)
 	end if
 end repeat
 
