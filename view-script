@@ -106,21 +106,30 @@ repeat while delivery_openslot is false
 		delay 10
 	else if input is "Not Found" then
 		log "error caused"
-	else if input contains "CHOOSE" then
-		-- Sends notifications through desktop notification or mail (if user allowed)
-		display notification "Found an available delivery slot!" with title "Instacart" sound name "Sosumi"
-		say "Delivery slot appeared. Try to checkout."
-		if mail_notif is true then
-			tell application "Mail"
-				set theMessage to make new outgoing message with properties {subject:"Instacart Delivery Slot Found!", content:"Check the Instacart Website! There is a delivery slot available! Try to checkout!", visible:true}
-				tell theMessage
-					make new to recipient with properties {address:user_mail_address}
-					send
-				end tell
+	else if input contains "CHOOSE" and input contains "$" then
+		if input contains "all shoppers are busy" then
+			tell application "Safari"
+				close (last tab of window id instaURL_id)
 			end tell
+			log "no slots found"
+			delay 10
+		else
+			-- Sends notifications through desktop notification or mail (if user allowed)
+			display notification "Found an available delivery slot!" with title "Instacart" sound name "Sosumi"
+			say "Delivery slot appeared. Try to checkout."
+			if mail_notif is true then
+				tell application "Mail"
+					set theMessage to make new outgoing message with properties {subject:"Instacart Delivery Slot Found!", content:"Check the Instacart Website! There is a delivery slot available! Try to checkout!", visible:true}
+					tell theMessage
+						make new to recipient with properties {address:user_mail_address}
+						send
+					end tell
+				end tell
+			end if
+			set delivery_openslot to true
+			log "Script found 'CHOOSE' slot"
 		end if
-		set delivery_openslot to true
-		log "Script found 'CHOOSE' slot"
+		
 		(*else
 		-- Sends notifications through desktop notification or mail (if user allowed)
 		display notification "Found an available delivery slot!" with title "Instacart" sound name "Sosumi"
