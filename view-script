@@ -82,14 +82,14 @@ repeat while delivery_openslot is false
 			set miniaturized of window id instaURL_id to true
 			set first_time to false
 		end if
-		delay 5
+		delay 15
 		repeat until (do JavaScript "document.readyState" in tab -1 of window id instaURL_id) is "complete"
 			if (do JavaScript "document.readyState" in tab -1 of window id instaURL_id) is "complete" then
 				exit repeat
 				log "exited repeat"
 			end if
 		end repeat
-		delay 5
+		delay 10
 	end tell
 	
 	-- Reads HTML text on page and looks for whether delivery slot is open or not
