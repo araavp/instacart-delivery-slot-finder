@@ -4,7 +4,7 @@ Mac Script that notifies you once a delivery slot is available on Instacart
 # Versions
 Latest Version: Version #6 4/18/20 6:35 PM PST. If you receive notification for delivery slot available when the website still shows "No delivery times available", please download file again.
 
--Version #5 4/18/20 6:25 PM PST. If you receive this error: error "The variable input is not defined." number -xxxx from "input" Please redownload the instacart-deliveryslot-finder.scpt file.
+- Version #5 4/18/20 6:25 PM PST. If you receive this error: error "The variable input is not defined." number -xxxx from "input" Please redownload the instacart-deliveryslot-finder.scpt file.
 - Version #4: 4/18/20 4:43 PM PST. If you receive notification for delivery slot available when the website still shows "No delivery times available", please download file again.
 - Version #3: 4/14/20 11:20 PM PST. If you want a faster version, please download again. Version #2 should also work fine.
 - Version #2: 4/14/20 10:18 PM PST. If you receive this error: error "The variable input is not defined." number -xxxx from "input" Please redownload the instacart-deliveryslot-finder.scpt file.
