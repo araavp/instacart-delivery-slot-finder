@@ -98,15 +98,22 @@ repeat while delivery_openslot is false
 	end tell
 	
 	-- Refreshes by closing previous page and opening a new one
-	if input contains no_delivery or input contains no_delivery2 then
+	if input does not contain no_delivery or input does not contain no_delivery2 then
 		tell application "Safari"
-			close (last tab of window id instaURL_id)
+			-- close (last tab of window id instaURL_id)
+			repeat with i from (count of windows) to 1 by -1
+				repeat with j from (count of tabs of window i) to 1 by -1
+					set index_tab to tab j of window i
+					set name_of_tab to name of index_tab
+					if name_of_tab contains "Instacart -" then close index_tab
+				end repeat
+			end repeat
 		end tell
 		log "no slots found"
 		delay 10
 	else if input is "Not Found" then
 		log "error caused"
-	else if input contains "CHOOSE" and input contains "$" then
+	else if input contains "CHOOSE" and input contains "$" and (input contains "Today" or input contains "SUN" or input contains "MON" or input contains "TUE" or input contains "WED" or input contains "THU" or input contains "FRI" or input contains "SAT") then
 		if input contains "all shoppers are busy" then
 			tell application "Safari"
 				close (last tab of window id instaURL_id)
