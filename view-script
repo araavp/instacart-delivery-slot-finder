@@ -89,7 +89,7 @@ repeat while delivery_openslot is false
 				log "exited repeat"
 			end if
 		end repeat
-		delay 10
+		delay 15
 	end tell
 	
 	-- Reads HTML text on page and looks for whether delivery slot is open or not
@@ -98,7 +98,7 @@ repeat while delivery_openslot is false
 	end tell
 	
 	-- Refreshes by closing previous page and opening a new one
-	if input does not contain no_delivery or input does not contain no_delivery2 then
+	if input contains no_delivery or input contains no_delivery2 then
 		tell application "Safari"
 			-- close (last tab of window id instaURL_id)
 			repeat with i from (count of windows) to 1 by -1
