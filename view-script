@@ -30,6 +30,14 @@ How the Script Works
 3. If it is available, it will send a desktop notification with sound and/or an email if you had selected the option
 "
 
+set variableNotDefined to "
+
+If you receive the error 'input not defined' after the script opens a new tab with the Instacart website:
+then,
+1. cntrl-f
+2. search for 'error fixing statement'
+3. for the line right underneath, which should say 'delay 15', you want to change the number 15 (in seconds) to the number of seconds it takes for the Instacart website to load
+"
 
 -- Declare variables
 set welcomeMessage to "Welcome to Instacart Delivery Slot Search Tool!"
@@ -82,6 +90,7 @@ repeat while delivery_openslot is false
 			set miniaturized of window id instaURL_id to true
 			set first_time to false
 		end if
+		-- error fixing statement
 		delay 15
 		repeat until (do JavaScript "document.readyState" in tab -1 of window id instaURL_id) is "complete"
 			if (do JavaScript "document.readyState" in tab -1 of window id instaURL_id) is "complete" then
