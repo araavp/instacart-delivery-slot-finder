@@ -2,8 +2,9 @@
 Mac Script that notifies you once a delivery slot is available on Instacart
 
 # Versions
-Latest Version: Version #8 4/27/20 12:11 AM PST. If the script does not show delivery slot when there is a delivery slot, please download again. If you receive this error: error "The variable input is not defined." number -xxxx from "input" Please redownload the instacart-deliveryslot-finder.scpt file.
+Latest Version: Version #9 4/28/20 3:38 AM PST. If you receive this error: error "The variable input is not defined." number -xxxx from "input" Please redownload the instacart-deliveryslot-finder.scpt file.
 
+- Version #8 4/27/20 12:11 AM PST. If the script does not show delivery slot when there is a delivery slot, please download again. If you receive this error: error "The variable input is not defined." number -xxxx from "input" Please redownload the instacart-deliveryslot-finder.scpt file.
 - Version #7 4/22/20 9:43 AM PST. If the script continues to open new Instacart tabs but does not close the old tabs properly, please download file again.
 - Version #6 4/18/20 6:35 PM PST. If you receive notification for delivery slot available when the website still shows "No delivery times available", please download file again.
 - Version #5 4/18/20 6:25 PM PST. If you receive this error: error "The variable input is not defined." number -xxxx from "input" Please redownload the instacart-deliveryslot-finder.scpt file.
@@ -18,6 +19,7 @@ I don’t guarantee that slots will be found when you’re running the script or
 # Updates
 - After running the script, let the script minimize the window (should take around 20-30 seconds), then proceed to carry on with computer use. 
 
+- 4/28/20 3:38 AM PST. If you receive this error: error "The variable input is not defined." number -xxxx from "input" Please redownload the instacart-deliveryslot-finder.scpt file.
 - 4/27/20 12:11 AM PST. If the script does not show delivery slot when there is a delivery slot, please download again. If you receive this error: error "The variable input is not defined." number -xxxx from "input" Please redownload the instacart-deliveryslot-finder.scpt file.
 - 4/22/20 9:43 AM PST. If the script continues to open new Instacart tabs but does not close the old tabs properly, please download file again.
 - 4/18/20 6:35 PM PST. If you receive notification for delivery slot available when the website still shows "No delivery times available", please download file again.
